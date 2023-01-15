@@ -1,3 +1,17 @@
-.hello {
-  color: red;
+a {
+  cursor: pointer;
+}
+
+#nav {
+  padding: 30px;
+  text-align: center;
+}
+
+#nav a {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.main {
+  text-align: center;
 }
