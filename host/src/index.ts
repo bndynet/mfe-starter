@@ -16,6 +16,12 @@ const appContainerSelector = '#subapp-container';
 registerMicroApps(
   [
     {
+      name: 'app-html',
+      entry: '//localhost:5501/app-html/',
+      container: appContainerSelector,
+      activeRule: '/app-html',
+    },
+    {
       name: 'app-react',
       entry: '//localhost:3000',
       container: appContainerSelector,

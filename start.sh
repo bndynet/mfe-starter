@@ -2,6 +2,8 @@ tmux new-session -d -s mfe; \
 tmux split-window -v; \
 tmux send-keys "npm start --prefix host" Enter; \
 tmux split-window -v; \
+tmux send-keys "npm start --prefix app-react" Enter; \
+tmux split-window -v; \
 tmux send-keys "npm start --prefix app-angular" Enter; \
 tmux split-window -v; \
 tmux send-keys "npm start --prefix app-vue" Enter; \
