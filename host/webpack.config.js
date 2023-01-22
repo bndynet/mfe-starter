@@ -16,6 +16,9 @@ module.exports = (env) => {
     devtool: 'inline-source-map',
     devServer: {
       static: './dist',
+      historyApiFallback: {
+        index: '/'
+      },
     },
     plugins: [
       // This makes it possible for us to safely use env vars on our code

@@ -5,3 +5,8 @@ declare module '*.svg' {
 
 declare var PRODUCTION: boolean;
 declare var BUILT_AT: string;
+
+
+declare interface Window {
+  __APPS__: any[];
+}
