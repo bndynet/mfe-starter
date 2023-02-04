@@ -2,6 +2,8 @@ import './App.css';
 import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, Link, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
+import basePath from './base-path';
+
 const About = lazy(() => import('./pages/About'));
 
 export const router = createBrowserRouter([
@@ -18,7 +20,7 @@ export const router = createBrowserRouter([
   }, {
   }
 ], {
-  basename: window.__POWERED_BY_QIANKUN__ ? '/app-react' : '/'
+  basename: basePath,
 });
 
 function Loading() {

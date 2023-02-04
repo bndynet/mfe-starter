@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { HomeComponent } from './home/home.component';
+import { basePath } from '../base-path';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
   providers: [
     {
       provide: APP_BASE_HREF,
-      useValue: window.__POWERED_BY_QIANKUN__ ? '/app-angular' : '/',
+      useValue: basePath,
     },
   ],
 })
