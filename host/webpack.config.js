@@ -7,11 +7,9 @@ const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 const fileDep = path.resolve(__dirname, 'sample.txt');
 
-module.exports = (env) => {
-  const isProd = env.production;
-
+module.exports = (env, argv) => {
   return {
-    mode: 'development',
+    mode: argv.mode || 'development',
     entry: './src/index.ts',
     devtool: 'inline-source-map',
     devServer: {
@@ -24,8 +22,8 @@ module.exports = (env) => {
       // This makes it possible for us to safely use env vars on our code
       new webpack.DefinePlugin({
         'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
-        PRODUCTION: JSON.stringify(isProd),
-        BUILT_AT: webpack.DefinePlugin.runtimeValue(Date.now, {
+        __MODE__: JSON.stringify(env.target),
+        __BUILT_AT__: webpack.DefinePlugin.runtimeValue(Date.now, {
           fileDependencies: [fileDep],
         }),
       }),

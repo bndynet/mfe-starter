@@ -10,35 +10,21 @@ import {
   setDefaultMountApp,
   start,
 } from 'qiankun';
+import { remotes } from './remotes';
+import { Env } from './types';
+
+const currentEnv = __MODE__ || Env.Dev;
+
+console.log(`Looks like we are in ${currentEnv} mode!`);
 
 const appContainerSelector = '#subapp-container';
 
-const apps = [
-  {
-    name: 'app-html',
-    entry: '//localhost:5501/app-html/',
-    container: appContainerSelector,
-    activeRule: '/app-html',
-  },
-  {
-    name: 'app-react',
-    entry: '//localhost:3000',
-    container: appContainerSelector,
-    activeRule: '/app-react',
-  },
-  {
-    name: 'app-angular',
-    entry: '//localhost:4200',
-    container: appContainerSelector,
-    activeRule: '/app-angular',
-  },
-  {
-    name: 'app-vue',
-    entry: '//localhost:8081',
-    container: appContainerSelector,
-    activeRule: '/app-vue',
-  },
-];
+const apps = remotes.map((remote) => ({
+  name: remote.name,
+  entry: remote.entryMap[currentEnv as  Env],
+  container: appContainerSelector,
+  activeRule: remote.path,
+}));
 
 (window as any).__APPS__ = apps;
 
@@ -75,4 +61,4 @@ runAfterFirstMounted(() => {
   console.log('[HostApp] first app mounted');
 });
 
-console.log('Built at ' + BUILT_AT);
+// console.log('Built at ' + BUILT_AT);

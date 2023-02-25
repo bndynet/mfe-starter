@@ -4,6 +4,7 @@ const { name } = require('./package');
 //   transpileDependencies: true
 // })
 module.exports = {
+  publicPath: process.env.PUBLIC_URL || '/',
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',

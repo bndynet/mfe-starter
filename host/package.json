@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --open",
     "watch": "webpack --watch",
-    "build": "webpack --env production --progress",
+    "build": "webpack --mode=production --env target=production --progress",
+    "build:dev": "webpack --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bendy Zhang",
