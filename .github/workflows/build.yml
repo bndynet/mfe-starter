@@ -1,6 +1,6 @@
 name: Build All Apps
 run-name: ${{ github.actor }} is building all apps 🚀
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
